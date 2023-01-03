@@ -12,10 +12,10 @@ WIN_HEIGHT = 800
 
 GEN = 0
 
-BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird1.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird2.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird3.png")))]
-PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "pipe.png")))
-BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "base.png")))
-BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bg.png")))
+BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load('images/bird1.png').convert_alpha()), pygame.transform.scale2x(pygame.image.load('images/bird2.png').convert_alpha()), pygame.transform.scale2x(pygame.image.load('images/bird3.png').convert_alpha())]
+PIPE_IMG = pygame.transform.scale2x(pygame.image.load('images/pipe.png').convert_alpha())
+BASE_IMG = pygame.transform.scale2x(pygame.image.load('images/base.png').convert_alpha())
+BG_IMG = pygame.transform.scale2x(pygame.image.load('images/bg.png').convert_alpha())
 
 STAT_FONT = pygame.font.SysFont("consolas", 40)
 
@@ -49,9 +49,9 @@ class Bird:
 			d = 16
 
 		if d < 0:
-			d -= 2 #changes jump val, can mess w
+			d -= 2
 
-		self.y = self.y + d #change to += d ?
+		self.y = self.y + d 
 
 		if d < 0 or self.y < self.height + 50:
 			if self.tilt < self.MAX_ROTATION:
@@ -221,7 +221,6 @@ def main(genomes, config):
 			if output[0] > 0.5:
 				bird.jump()
 
-		#bird.move()
 		add_pipe = False
 		rem = []
 		for pipe in pipes:
