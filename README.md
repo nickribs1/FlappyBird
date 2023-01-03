@@ -3,7 +3,7 @@ Flappy Bird AI project using NEAT neural network
 
 Using the NeuroEvolution of Augmenting Topologies (NEAT) evolutionary algorithm, I created an artificial neural network that could perfectly play the game Flappy Bird. 
 
-The original documentation for the NEAT algorithm can be found [here](https://nn.cs.utexas.edu/downloads/papers/stanley.cec02.pdf)
+The original documentation for the NEAT algorithm can be found [here](https://nn.cs.utexas.edu/downloads/papers/stanley.cec02.pdf).
 
 
 Additionally, I made a Flappy Bird game that can be played by humans, seen in the flappy_game_playable.py file.
