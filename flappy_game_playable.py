@@ -10,12 +10,12 @@ pygame.font.init()
 WIN_WIDTH = 500
 WIN_HEIGHT = 800
 
-BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird1.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird2.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird3.png")))]
-PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "pipe.png")))
-BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "base.png")))
-BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bg.png")))
-START_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "message.png")))
-GAME_OVER_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "gameover.png")))
+BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load('images/bird1.png').convert_alpha()), pygame.transform.scale2x(pygame.image.load('images/bird2.png').convert_alpha()), pygame.transform.scale2x(pygame.image.load('images/bird3.png').convert_alpha())]
+PIPE_IMG = pygame.transform.scale2x(pygame.image.load('images/pipe.png').convert_alpha())
+BASE_IMG = pygame.transform.scale2x(pygame.image.load('images/base.png').convert_alpha())
+BG_IMG = pygame.transform.scale2x(pygame.image.load('images/bg.png').convert_alpha())
+START_IMG = pygame.transform.scale2x(pygame.image.load('images/message.png').convert_alpha())
+GAME_OVER_IMG = pygame.transform.scale2x(pygame.image.load('images/gameover.png').convert_alpha())
 
 STAT_FONT = pygame.font.SysFont("consolas", 40)
 SMALLER_FONT = pygame.font.SysFont("consolas", 25)
@@ -227,11 +227,6 @@ def main():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				gameOver(score)
-				#run = False
-				#pygame.quit()
-				#quit()
-			#elif event.type == pygame.K_SPACE:
-				#bird.jump()
 
 		bird.move()
 
@@ -240,23 +235,14 @@ def main():
 		if pressed_keys[K_SPACE]:
 			bird.jump()
 
-		#for event in pygame.event.get():
-		#	if event.type == pygame.KEYDOWN:
-		#		if event.key == pygame.K_SPACE:
-		#			bird.jump()
-
 		if bird.y > base.y - 60:
 			gameOver(score)
-			#run = False
 
 		add_pipe = False
 		rem = []
 		for pipe in pipes:
 			if pipe.collide(bird):
 				gameOver(score)
-				#run = False
-				#pygame.quit()
-				#quit() 
 
 			if pipe.x + pipe.PIPE_TOP.get_width() < 0:
 				rem.append(pipe)
@@ -273,8 +259,6 @@ def main():
 
 		for r in rem:
 			pipes.remove(r)
-
-		#look up how to make user control game
 
 		if bird.y + bird.img.get_height() >= 730:
 			gameOver(score)
